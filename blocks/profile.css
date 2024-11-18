@@ -41,11 +41,43 @@
 }
 
 .profile__edit-button {
+  font: Poppins, Arial, Helvetica, sans-serif;
+  opacity: 0.7;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  width: 121px;
+  height: 18px;
   margin-top: auto;
+  color: #212121;
+  background: transparent;
+  border: transparent;
+}
+
+.profile__edit-button:hover {
+  opacity: 1;
 }
 
 .profile__add-button {
+  position: relative;
+  margin-top: auto;
+  right: 0;
+  bottom: 0;
+  width: 149px;
+  height: 52px;
   margin-left: auto;
+  padding: 18px, 32px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+}
+
+.profile__add-button:hover {
+  background-color: #212121;
+  opacity: 0.8;
+  transform: scale(1.1);
+  border: 1px solid #ddd;
 }
 
 @media screen and (max-width: 627px) {
