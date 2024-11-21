@@ -26,6 +26,12 @@
 }
 
 .card__title {
+  width: 257px;
+  height: 24px;
+  font: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
