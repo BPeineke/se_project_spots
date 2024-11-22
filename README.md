@@ -19,7 +19,7 @@ An example of the semantic tags used and how they fit into the stucture can be s
 The Project can be accessed via this link:
 https://github.com/BPeineke/se_project_spots.git
 
-THe project video can be found here:
+The project video can be found here:
 https://drive.google.com/file/d/1gO_pYsZ8ahJWm-1QSZYKgUBx22j4VLec/view?usp=drive_link
 
 Pictures, GIFs, or screenshots that detail the project features (highly

@@ -7,6 +7,7 @@
 }
 
 .profile__avatar {
+  border-radius: 8px;
   height: 190px;
   width: 190px;
   margin-right: 20px;
@@ -18,6 +19,7 @@
 }
 
 .profile__name {
+  color: #212121;
   margin: 0 0 12px;
   font-weight: 500;
   font-size: 32px;
@@ -30,7 +32,13 @@
   max-width: 420px;
 }
 
-.profile_description {
+.profile__description {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  opacity: 0.7;
+  color: #212121;
+  font-size: 16px;
+  line-height: 16px;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -41,7 +49,7 @@
 }
 
 .profile__edit-button {
-  font: Poppins, Arial, Helvetica, sans-serif;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   opacity: 0.7;
   border-radius: 8px;
   font-size: 16px;
@@ -53,6 +61,15 @@
   color: #212121;
   background: transparent;
   border: transparent;
+  cursor: pointer;
+}
+
+.profile__edit-button::before {
+  cursor: pointer;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/pencil.svg);
 }
 
 .profile__edit-button:hover {
@@ -60,30 +77,26 @@
 }
 
 .profile__add-button {
+  cursor: pointer;
   position: relative;
   margin-top: auto;
-  right: 0;
-  bottom: 0;
   width: 149px;
   height: 52px;
   margin-left: auto;
   padding: 18px, 32px;
+  border: none;
   border-radius: 8px;
-  background-color: black;
-  color: white;
+  background-color: #212121;
+  color: #fcf5e5;
 }
 
 .profile__add-button:hover {
-  background-color: #212121;
   opacity: 0.8;
-  transform: scale(1.1);
-  border: 1px solid #ddd;
 }
 
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
-    max-width: 2880px;
     align-items: center;
     text-align: center;
     padding-top: 20px;
@@ -101,14 +114,14 @@
     max-width: 288px;
   }
 
-  .profile_description {
+  .profile__description {
     margin: 0 0 32px;
-    font-size: 16;
     max-width: 288px;
   }
 
   .profile__column {
     margin: 0 0 20px;
+    align-items: center;
   }
 
   .profile__add-button {
