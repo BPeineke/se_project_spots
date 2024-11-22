@@ -19,7 +19,16 @@ An example of the semantic tags used and how they fit into the stucture can be s
 The Project can be accessed via this link:
 https://github.com/BPeineke/se_project_spots.git
 
+To ensure accessability to the recording/video as outlined in the project rquirents, it ha been hosted on YouTube, as well as made available for download on DropBox and my GoogleDrive:
+
 The project video can be found here:
+youtube:
+https://youtu.be/dPPj1fpHfIY
+
+Dropbox:
+https://www.dropbox.com/scl/fi/5ofdzk4uekldj7tz5b6kn/Sprint3Project3BPeineke.mp4?rlkey=cej4g0r3f9wo5sl4c1mmlkm8k&st=4baw7m92&dl=0
+
+Google Drive
 https://drive.google.com/file/d/1gO_pYsZ8ahJWm-1QSZYKgUBx22j4VLec/view?usp=drive_link
 
 Pictures, GIFs, or screenshots that detail the project features (highly
