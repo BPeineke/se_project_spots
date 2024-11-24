@@ -4,6 +4,7 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card__content {
@@ -27,7 +28,8 @@
 }
 
 .card__title {
-  width: 257px;
+  color: #212121;
+  width: 353px;
   font: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
