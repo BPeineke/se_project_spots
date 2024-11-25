@@ -17,7 +17,7 @@ An example of the semantic tags used and how they fit into the stucture can be s
 ![Semantic Tags](../se_project_spots/images/S-Tags.jpg)
 
 The Project can be accessed via this link:
-https://github.com/BPeineke/se_project_spots.git
+https://bpeineke.github.io/se_project_spots/
 
 To ensure accessability to the recording/video as outlined in the project rquirents, it ha been hosted on YouTube, as well as made available for download on DropBox and my GoogleDrive:
 

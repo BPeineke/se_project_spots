@@ -62,6 +62,7 @@
   background: transparent;
   border: transparent;
   cursor: pointer;
+  align-items: baseline;
 }
 
 .profile__edit-button::before {
@@ -70,7 +71,6 @@
   width: 16px;
   height: 16px;
   display: block;
-  background-image: url(../images/pencil.svg);
 }
 
 .profile__edit-button:hover {
