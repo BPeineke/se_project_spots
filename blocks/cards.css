@@ -1,5 +1,5 @@
 .cards {
-  padding: 20px 0 40px;
+  padding: 20px 0;
   border-bottom: 1px solid #21212166;
   max-width: 1280px;
   margin: 0 auto;
@@ -18,12 +18,6 @@
 @media screen and (max-width: 627px) {
   .cards__list {
     grid-template-columns: repeat(auto-fit, 288px);
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .edit-button {
-    margin: 0 auto;
-    display: block;
+    gap: 20px;
   }
 }

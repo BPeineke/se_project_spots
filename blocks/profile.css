@@ -55,23 +55,26 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
-  width: 121px;
+  width: fit-content;
+  display: flex;
   height: 18px;
+  padding: 0;
+  gap: 3px;
   margin-top: auto;
   color: #212121;
   background: transparent;
   border: transparent;
   cursor: pointer;
-  align-items: baseline;
+  align-items: center;
 }
 
-.profile__edit-button::before {
+/* .profile__edit-button::before {
   cursor: pointer;
   content: "";
   width: 16px;
   height: 16px;
   display: block;
-}
+} */
 
 .profile__edit-button:hover {
   opacity: 1;
