@@ -59,7 +59,7 @@
   display: flex;
   height: 18px;
   padding: 0;
-  gap: 3px;
+  gap: 8px;
   margin-top: auto;
   color: #212121;
   background: transparent;
@@ -87,7 +87,6 @@
   width: 149px;
   height: 52px;
   margin-left: auto;
-  padding: 18px, 32px;
   border: none;
   border-radius: 8px;
   background-color: #212121;

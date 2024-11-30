@@ -1,5 +1,10 @@
+.card {
+  width: 413px;
+  height: 445px;
+}
+
 .card__image {
-  height: 288px;
+  height: 413px;
   width: 100%;
   object-fit: cover;
   display: block;
@@ -41,13 +46,14 @@
   overflow: hidden;
   margin: 0;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
+  .card {
+    width: 288px;
+    height: 318px;
+  }
   .card__title {
-    color: #212121;
     height: 18px;
     width: 288px;
-    font: Poppins, Arial, Helvetica, sans-serif;
-    font-weight: 500;
     font-size: 16px;
     line-height: 16px;
   }
@@ -55,5 +61,9 @@
     background-image: url(../images/heart.svg);
     width: 20px;
     height: 18px;
+  }
+
+  .card__image {
+    height: 288px;
   }
 }
