@@ -2,7 +2,4 @@
   .content {
     padding: 0 16px;
   }
-  .cards__list {
-    grid-template-columns: repeat(auto-fit, 288px);
-  }
 }

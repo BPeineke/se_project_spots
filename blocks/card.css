@@ -1,6 +1,6 @@
 .card {
   width: 413px;
-  height: 445px;
+  /*height: 445px;*/
 }
 
 .card__image {
@@ -36,8 +36,8 @@
 
 .card__title {
   color: #212121;
-  width: 353px;
-  font: Poppins, Arial, Helvetica, sans-serif;
+  max-width: 353px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
@@ -46,24 +46,21 @@
   overflow: hidden;
   margin: 0;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 627px) {
   .card {
     width: 288px;
     height: 318px;
   }
   .card__title {
-    height: 18px;
-    width: 288px;
+    max-width: 235px;
     font-size: 16px;
     line-height: 16px;
-  }
-  .card__like-button {
-    background-image: url(../images/heart.svg);
-    width: 20px;
-    height: 18px;
   }
 
   .card__image {
     height: 288px;
+  }
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, 288px);
   }
 }
