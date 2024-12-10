@@ -25,7 +25,7 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button type="button" class="profile__edit-button">
+            <button class="profile__edit-button" type="button">
               <img src="./images/pencil.svg" alt="Pencil icon" /> Edit Profile
             </button>
           </div>
@@ -109,9 +109,9 @@
       <footer class="footer">
         <p class="footer__text">2003 © Spots</p>
       </footer>
-      <div class="modal modal_opened">
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="submit" class="modal__close-btn">
+          <button type="submit" class="modal__close-button">
             <img src="./images/Close Icon.svg" alt="Close icon" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
@@ -134,7 +134,7 @@
                 placeholder="Describe yourself"
               />
             </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
+            <button type="submit" class="modal__submit-button">Save</button>
           </form>
         </div>
       </div>

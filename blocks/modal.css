@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.modal__close-btn {
+.modal__close-button {
   background: transparent;
   border: transparent;
   cursor: pointer;
@@ -65,7 +65,7 @@
   border-radius: 8px;
 }
 
-.modal__submit-btn {
+.modal__submit-button {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   background-color: #212121;
   color: #fcf5e5;
@@ -90,7 +90,7 @@
     font-size: 20px;
     margin: 10px 0 34px;
   }
-  .modal__close-btn {
+  .modal__close-button {
     top: 12px;
     right: 12px;
   }
@@ -99,7 +99,7 @@
     margin-bottom: 24px;
   }
 
-  .modal__submit-btn {
+  .modal__submit-button {
     width: 100%;
   }
 }
