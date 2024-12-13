@@ -11,6 +11,10 @@ From the basic onset, the first technology used and interacted with to develop t
 
 Media Queries as the one below enable this website to be responsive and dynamic in its funtionality.
 
+THe project impliments Java Script to optimise the population of the form information and the submission of the form, or perhaps more sucsinctly the interaction with the information given in those forms.
+
+Java Script alo aids in the rendering of the cards and their content by siplifying the code and using containers to create cleaner more well rounded coding stucture.
+
 ![Media Queries](../se_project_spots/images/media%20Q.jpg)
 
 An example of the semantic tags used and how they fit into the stucture can be seen here:
