@@ -36,16 +36,18 @@
 }
 
 .card__like-button_liked {
-  background-image: url("../images/like-icon-liked.jpg");
+  background-image: url("../images/like-icon-liked.svg");
+  background-repeat: no-repeat;
   opacity: 1;
 }
 
 .card__like-button_liked:hover {
-  background-image: url("../images/like-icon-liked-hover.png");
+  background-image: url("../images/like-icon-liked-hover.svg");
+  background-repeat: no-repeat;
 }
 
 .card__delete-button {
-  background-image: url("../images/Delete-icon.jpg");
+  background-image: url("../images/Delete-icon.svg");
   background-position: center;
   background-repeat: no-repeat;
   border: none;
@@ -59,7 +61,7 @@
 }
 
 .card__delete-button:hover {
-  background-image: url("../images/Delete-icon-hover.jpg");
+  background-image: url("../images/Delete-icon-hover.svg");
 }
 
 .card__title {

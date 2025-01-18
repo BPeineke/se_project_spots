@@ -68,7 +68,6 @@ function getCardElement(data) {
 
   cardDeleteButton.addEventListener("click", (event) => {
     console.log("Delete button clicked");
-    const cardElement = event.target.closest(".card");
     console.log(cardElement);
     if (cardElement) {
       cardElement.remove();
@@ -112,6 +111,8 @@ function handleAddCardSubmit(evt) {
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  console.log(evt.target);
+  evt.target.reset();
   closeModal(cardModal);
 }
 
