@@ -12,12 +12,14 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
+  opacity: 0;
   padding: 0 10px;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition: visibility.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__caption {
@@ -27,6 +29,8 @@
   line-height: 24px;
   color: white;
   border-radius: 8px;
+  padding: 4px 8px;
+  display: inline-block;
 }
 
 .modal__container {
@@ -51,6 +55,7 @@
   max-width: 80vw;
   max-height: 80vh;
   padding: 0;
+  border-radius: 8px;
 }
 
 .modal__close-button {
@@ -60,7 +65,7 @@
   cursor: pointer;
   position: absolute;
   top: 32px;
-  right: 50px;
+  right: 10px;
   width: 40px;
   height: 40px;
   display: flex;
@@ -91,7 +96,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 32px;
 }
 
 .modal__input {
@@ -145,7 +149,7 @@
 
   .modal__label {
     margin-bottom: 24px;
-    background-color: #212121;
+    color: rgba(33, 33, 33, 0.7);
   }
 
   .modal__submit-button {
