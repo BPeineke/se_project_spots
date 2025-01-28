@@ -115,12 +115,14 @@
     </div>
 
     <div class="modal" id="preview-modal">
+      <button
+        aria-label="Close modal"
+        class="modal__close-button modal__close-button_type_preview"
+        type="button"
+      >
+        <img class="modal__close-icon" src="./images/CloseIcon.svg" />
+      </button>
       <div class="modal__container modal__container_type_preview">
-        <button
-          aria-label="Close modal"
-          class="modal__close-button modal__close-button_type_preview"
-          type="button"
-        ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
       </div>
