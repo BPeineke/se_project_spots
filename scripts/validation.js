@@ -10,13 +10,13 @@ const settings = {
 const showInputError = (formEl, inputEl, errorMsg) => {
   const errorMsgEl = formEl.querySelector("#${inputEl.id}-error");
   errorMsgEl.textContent = errorMsg;
-  inputEl.classList.add("model__input_type_error");
+  inputEl.classList.add("modal__input_type_error");
 };
 
 const HideInputError = (formEl, inputEl) => {
   const errorMsgEl = formEl.querySelector("#${inputEl.id}-error");
   errorMsgEl.textContent = "";
-  inputEl.classList.remove("model__input_type_error");
+  inputEl.classList.remove("modal__input_type_error");
 };
 
 const checkInputValidity = (formEl, inputEl) => {
@@ -47,18 +47,18 @@ const disableButton = (buttonEl, config) => {
 
 const resetValidation = (formEl, inputList) => {
   inputList.forEach((input) => {
-    HideInputError(ormEl, input);
+    HideInputError(formEl, input);
   });
 };
 
 const setEventListners = (formEl, config) => {
-  const inputList = Array.form(formEl.querySelectorAll(config.inputSelector));
-  const buttonElement = formEl.queryselector(config.submitButtonSelector);
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
   //toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
-    imputElement.addEventListener("input", function () {
+    inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
