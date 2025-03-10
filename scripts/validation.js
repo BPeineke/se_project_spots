@@ -7,10 +7,10 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const showInputError = (formEl, inputEl, errorMsg) => {
+const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
-  inputEl.classList.add("modal__input_type_error");
+  inputEl.classList.add(config.inputErrorClass);
 };
 
 const HideInputError = (formEl, inputEl) => {
@@ -29,6 +29,7 @@ const checkInputValidity = (formEl, inputEl) => {
 
 const hasInvalidInput = (inputList) => {
   inputList.some((input) => {
+    buttonEl.style.color = black;
     return !input.validity.valid;
   });
 };
