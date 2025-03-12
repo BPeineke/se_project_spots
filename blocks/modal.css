@@ -152,7 +152,7 @@
   opacity: 0.8;
 }
 
-.modal__submit-button {
+.modal__button {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   background-color: #212121;
   color: #fcf5e5;
@@ -166,8 +166,13 @@
   cursor: pointer;
 }
 
-.modal__submit-button:hover {
+.modal__button:hover {
   opacity: 0.8;
+}
+
+.modal__button_disabled {
+  if
+  background-color:  #212121;
 }
 
 @media screen and (max-width: 627px) {

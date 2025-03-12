@@ -27,18 +27,26 @@ const checkInputValidity = (formEl, inputEl) => {
   }
 };
 
-const hasInvalidInput = (inputList) => {
-  inputList.some((input) => {
-    buttonEl.style.color = black;
-    return !input.validity.valid;
+//const hasInvalidInput = (inputList) => {
+//inputList.some((input) => {
+//buttonEl.style.color = black;
+// return !input.validity.valid;
+// });
+//};
+
+function hasInvalidInput(inputList) {
+  return inputList.some((inputElement) => {
+    return inputElement.value.trim().length === 0;
   });
-};
+}
 
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonEl);
+    buttonEl.setAttribute("disabled", true);
+    buttonEl.style.color = ""; // or set to a default color
   } else {
-    buttonEl.disabled = false;
+    buttonEl.removeAttribute("disabled");
+    buttonEl.style.color = "black"; // change to black
   }
 };
 
