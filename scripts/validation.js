@@ -13,17 +13,17 @@ const showInputError = (formEl, inputEl, errorMsg, config) => {
   inputEl.classList.add(config.inputErrorClass);
 };
 
-const HideInputError = (formEl, inputEl) => {
+const hideInputError = (formEl, inputEl) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
   inputEl.classList.remove("modal__input_type_error");
 };
 
-const checkInputValidity = (formEl, inputEl) => {
+const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage);
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    HideInputError(formEl, inputEl);
+    hideInputError(formEl, inputEl);
   }
 };
 
@@ -36,17 +36,18 @@ const checkInputValidity = (formEl, inputEl) => {
 
 function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
-    return inputElement.value.trim().length === 0;
+    return !inputElement.validity.valid;
   });
 }
 
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    buttonEl.setAttribute("disabled", true);
-    buttonEl.style.color = ""; // or set to a default color
+    // disable submit button
+    buttonEl.disabled = true;
+    buttonEl.classList.add(config.inactiveButtonClass);
   } else {
-    buttonEl.removeAttribute("disabled");
-    buttonEl.style.color = "black"; // change to black
+    buttonEl.disabled = false;
+    buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
 
@@ -56,13 +57,15 @@ const disableButton = (buttonEl, config) => {
 
 const resetValidation = (formEl, inputList) => {
   inputList.forEach((input) => {
-    HideInputError(formEl, input);
+    hideInputError(formEl, input);
   });
 };
 
 const setEventListners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
+
+  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
