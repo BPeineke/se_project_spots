@@ -42,7 +42,6 @@ function hasInvalidInput(inputList) {
 
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    // disable submit button
     buttonEl.disabled = true;
     buttonEl.classList.add(config.inactiveButtonClass);
   } else {
@@ -53,6 +52,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 
 const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
+  buttonEl.classList.add(config.inactiveButtonClass);
 };
 
 const resetValidation = (formEl, inputList) => {
