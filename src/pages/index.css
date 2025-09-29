@@ -1,0 +1,32 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(../blocks/page.css);
+@import url(../blocks/header.css);
+@import url(../blocks/content.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/card.css);
+@import url(../blocks/cards.css);
+@import url(../blocks/footer.css);
+@import url(../blocks/modal.css);
+
+.page {
+  font-family: "ubuntu-regular";
+  font-size: 16px;
+  background-color: #e3e3e3;
+}
+
+.page__subtitle {
+  font-style: italic;
+}
+
+.page__image {
+  width: 800px;
+}
+
+.page__image_achievements {
+  background-image: url(../images/achievements.svg);
+  height: 444px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,3 +1,11 @@
+import {
+  enableValidation,
+  validationconfig,
+  resetValidation,
+} from "../scripts/validation.js";
+
+import "./index.css";
+import Api from "../scripts/api.js";
 const initialCards = [
   {
     name: "Val Thorens",
@@ -24,6 +32,22 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "e61771ba-7eae-46c5-9016-6baccd09cc6b",
+    "Content-Type": "application/json",
+  },
+});
+
+api.getinitialcards().then((cards) => {
+  console.log(cards);
+  cards.forEach((item) => {
+    const cardElement = getCardElement(item);
+    cardsList.prepend(cardElement);
+  });
+});
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
@@ -130,7 +154,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
+  disableButton(cardSubmitBtn, validationconfig);
   closeModal(cardModal);
 }
 
@@ -140,7 +164,7 @@ profileEditButton.addEventListener("click", () => {
   resetValidation(
     editFormElement,
     [editModalNameInput, editModalDescriptionInput],
-    settings
+    validationconfig
   );
   openModal(editModal);
 });
@@ -168,3 +192,4 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
 });
+enableValidation(validationconfig);
