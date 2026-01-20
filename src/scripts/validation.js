@@ -44,6 +44,19 @@ const toggleButtonState = (inputList, buttonEl, config) => {
   }
 };
 
+export const setButtonText = (
+  buttonEl,
+  isLoading,
+  defaultText,
+  loadingText
+) => {
+  if (isLoading) {
+    buttonEl.textContent = loadingText;
+  } else {
+    buttonEl.textContent = defaultText;
+  }
+};
+
 export const disableButton = (buttonEl, config) => {
   //const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
