@@ -256,12 +256,7 @@ function handleAvatarFormSubmit(evt) {
   console.log("Sending avatar URL to API:", newAvatarUrl);
   setButtonText(avatarSubmitBtn, true, "Save", "Saving...");
   api
-    //.updateUserInfo({ avatar: newAvatarUrl })
-    //.then((userData) => {
-    //  console.log("Avatar updated successfully:", userData);
-    //   profileAvatar.src = userData.avatar;
-    //   closeModal(avatarModal);
-    //})
+
     .updateAvatar(newAvatarUrl)
     .then((userData) => {
       profileAvatar.src = userData.avatar;
