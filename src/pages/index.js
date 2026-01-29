@@ -57,7 +57,7 @@ api
 
     // Render cards to the page
     cards.forEach((card) => {
-      cardsList.prepend(getCardElement(card));
+      CardsList.prepend(getCardElement(card));
     });
   })
   .catch((err) => {
@@ -67,7 +67,7 @@ api
 const profileAvatar = document.querySelector(".profile__avatar");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileAvatarEditButton = document.querySelector(
-  ".profile__avatar-edit-button"
+  ".profile__avatar-edit-button",
 );
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
@@ -77,13 +77,13 @@ const editFormElement = editModal.querySelector(".modal__form");
 const editModalCloseButton = editModal.querySelector(".modal__close-button");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 
 const avatarModal = document.querySelector("#edit-avatar-modal");
 const avatarFormElement = avatarModal.querySelector(".modal__form");
 const avatarModalCloseButton = avatarModal.querySelector(
-  ".modal__close-button"
+  ".modal__close-button",
 );
 const avatarUrlInput = avatarModal.querySelector("#avatar-url-input");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__button");
@@ -99,7 +99,7 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(
-  ".modal__close-button"
+  ".modal__close-button",
 );
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
@@ -140,10 +140,10 @@ function getCardElement(data) {
 
   const deleteModal = document.querySelector("#confirm-delete-modal");
   const cardDeleteConfirmButton = deleteModal.querySelector(
-    ".modal__delete-button_type_preview"
+    ".modal__delete-button_type_preview",
   );
   const cardCancelConfirmButton = deleteModal.querySelector(
-    ".modal__cancel-button_type_preview"
+    ".modal__cancel-button_type_preview",
   );
   const button = cardDeleteConfirmButton;
 
@@ -180,13 +180,13 @@ function getCardElement(data) {
     selectedCard = element; // store the DOM element of the card
     selectedCardId = data._id; // store the card’s ID for API deletion
   }
+
+  //
+  // }
   cardDeleteButton.addEventListener("click", (event) => {
     openModal(deleteModal); // show the confirmation modal
     const cardElement = event.target.closest(".card");
     handleDeleteCard(cardElement, data);
-
-    //
-    // }
   });
 
   cardDeleteConfirmButton.addEventListener("click", handleDeleteSubmit);
@@ -201,7 +201,7 @@ function getCardElement(data) {
   });
 
   cardLikeButton.addEventListener("click", () =>
-    handleLike(cardLikeButton, data)
+    handleLike(cardLikeButton, data),
   );
 
   return cardElement;
@@ -248,7 +248,7 @@ function handleAvatarFormSubmit(evt) {
   const urlPattern = /^https:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i;
   if (!urlPattern.test(newAvatarUrl)) {
     alert(
-      "Please enter a valid HTTPS image URL (e.g., https://example.com/image.jpg)"
+      "Please enter a valid HTTPS image URL (e.g., https://example.com/image.jpg)",
     );
     return;
   }
@@ -297,7 +297,7 @@ profileEditButton.addEventListener("click", () => {
   resetValidation(
     editFormElement,
     [editModalNameInput, editModalDescriptionInput],
-    validationconfig
+    validationconfig,
   );
   openModal(editModal);
 });
@@ -332,8 +332,8 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 avatarFormElement.addEventListener("submit", handleAvatarFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardList.prepend(cardElement);
-});
+// initialCards.forEach((item) => {
+//const cardElement = getCardElement(item);
+// cardList.prepend(cardElement);
+//});
 enableValidation(validationconfig);
