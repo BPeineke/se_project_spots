@@ -50,6 +50,9 @@ api
   .then(({ cards, userData }) => {
     console.log("Data loaded successfully:", { cards, userData });
 
+    // Set current user ID
+    currentUserId = userData._id;
+
     // Display user profile information
     profileAvatar.src = userData.avatar;
     profileName.textContent = userData.name;
@@ -57,7 +60,7 @@ api
 
     // Render cards to the page
     cards.forEach((card) => {
-      CardsList.prepend(getCardElement(card));
+      cardList.prepend(getCardElement(card));
     });
   })
   .catch((err) => {
@@ -125,6 +128,47 @@ function handleLike(button, data) {
   }
 }
 
+const deleteModal = document.querySelector("#confirm-delete-modal");
+const cardDeleteConfirmButton = deleteModal.querySelector(
+  ".modal__delete-button_type_preview",
+);
+const cardCancelConfirmButton = deleteModal.querySelector(
+  ".modal__cancel-button_type_preview",
+);
+
+let selectedCard;
+let selectedCardId;
+
+function handleCancelDelete() {
+  closeModal(deleteModal);
+}
+
+function handleConfirmDelete() {
+  const button = cardDeleteConfirmButton;
+  setButtonText(button, true, "Delete", "Deleting...");
+
+  if (selectedCardId) {
+    api
+      .deleteCard(selectedCardId)
+      .then(() => {
+        selectedCard.remove();
+        closeModal(deleteModal);
+      })
+      .catch(console.error)
+      .finally(() => setButtonText(button, false, "Delete", "Deleting..."));
+  } else {
+    selectedCard.remove();
+    closeModal(deleteModal);
+    setButtonText(button, false, "Delete", "Deleting...");
+  }
+}
+
+function openDeleteConfirmation(cardElement, cardData) {
+  selectedCard = cardElement;
+  selectedCardId = cardData._id;
+  openModal(deleteModal);
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -134,39 +178,6 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  let selectedCard, selectedCardId; //
-
-  // If the card is liked set the active class on the card
-
-  const deleteModal = document.querySelector("#confirm-delete-modal");
-  const cardDeleteConfirmButton = deleteModal.querySelector(
-    ".modal__delete-button_type_preview",
-  );
-  const cardCancelConfirmButton = deleteModal.querySelector(
-    ".modal__cancel-button_type_preview",
-  );
-  const button = cardDeleteConfirmButton;
-
-  const handleCancelSubmit = (evt) => {
-    closeModal(deleteModal); // close the modal
-  };
-  const handleDeleteSubmit = (evt) => {
-    setButtonText(button, true, "Delete", "Deleting..."); // show loading state
-    if (selectedCardId) {
-      api
-        .deleteCard(selectedCardId) // optional API call
-        .then(() => {
-          selectedCard.remove(); // remove the card from the page
-          closeModal(deleteModal); // close the modal
-        })
-        .catch(console.error)
-        .finally(() => setButtonText(button, false, "Delete", "Deleting...")); // reset button text
-    } else {
-      selectedCard.remove(); // remove the card from the page
-      closeModal(deleteModal); // close the modal
-      setButtonText(button, false, "Delete", "Deleting..."); // reset button text
-    }
-  };
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -176,22 +187,10 @@ function getCardElement(data) {
     cardLikeButton.classList.add("card__like-button_liked");
   }
 
-  function handleDeleteCard(element, data) {
-    selectedCard = element; // store the DOM element of the card
-    selectedCardId = data._id; // store the card’s ID for API deletion
-  }
-
-  //
-  // }
   cardDeleteButton.addEventListener("click", (event) => {
-    openModal(deleteModal); // show the confirmation modal
-    const cardElement = event.target.closest(".card");
-    handleDeleteCard(cardElement, data);
+    const cardEl = event.target.closest(".card");
+    openDeleteConfirmation(cardEl, data);
   });
-
-  cardDeleteConfirmButton.addEventListener("click", handleDeleteSubmit);
-
-  cardCancelConfirmButton.addEventListener("click", handleCancelSubmit);
 
   cardImageEl.addEventListener("click", () => {
     previewModalCaptionEl.textContent = data.name;
@@ -235,9 +234,45 @@ function handleOverlayClick(e) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  const submitButton = editFormElement.querySelector(".modal__button");
+  setButtonText(submitButton, true, "Save", "Saving...");
+
+  const payload = {
+    name: editModalNameInput.value.trim(),
+    about: editModalDescriptionInput.value.trim(),
+  };
+
+  const apiMethod =
+    typeof api.updateUserInfo === "function"
+      ? api.updateUserInfo
+      : typeof api.setUserInfo === "function"
+        ? api.setUserInfo
+        : typeof api.editProfile === "function"
+          ? api.editProfile
+          : null;
+
+  if (apiMethod) {
+    apiMethod
+      .call(api, payload)
+      .then((userData) => {
+        profileName.textContent = userData.name;
+        profileDescription.textContent = userData.about;
+        closeModal(editModal);
+      })
+      .catch((err) => {
+        console.error("Error updating profile:", err);
+        alert("Failed to update profile. Please try again.");
+      })
+      .finally(() => {
+        setButtonText(submitButton, false, "Save", "Saving...");
+      });
+  } else {
+    // Fallback: apply locally if API method is not present
+    profileName.textContent = payload.name;
+    profileDescription.textContent = payload.about;
+    closeModal(editModal);
+    setButtonText(submitButton, false, "Save", "Saving...");
+  }
 }
 
 function handleAvatarFormSubmit(evt) {
@@ -332,8 +367,7 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 avatarFormElement.addEventListener("submit", handleAvatarFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-// initialCards.forEach((item) => {
-//const cardElement = getCardElement(item);
-// cardList.prepend(cardElement);
-//});
+cardDeleteConfirmButton.addEventListener("click", handleConfirmDelete);
+cardCancelConfirmButton.addEventListener("click", handleCancelDelete);
+
 enableValidation(validationconfig);
