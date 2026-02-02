@@ -317,7 +317,6 @@ function handleAddCardSubmit(evt) {
       const cardElement = getCardElement(newCard);
       cardList.prepend(cardElement);
       evt.target.reset();
-      disableButton(cardSubmitBtn, validationconfig);
     })
     .catch(console.error)
     .finally(() => {
