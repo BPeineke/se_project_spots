@@ -185,6 +185,40 @@
   pointer-events: none;
 }
 
+/* confirm-delete modal buttons */
+#confirm-delete-modal .modal__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+#confirm-delete-modal .modal__delete-button,
+#confirm-delete-modal .modal__cancel-button {
+  min-width: 120px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#confirm-delete-modal .modal__delete-button {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+}
+
+#confirm-delete-modal .modal__cancel-button {
+  background: #fff;
+  color: #212121;
+  border: 1px solid rgba(33, 33, 33, 0.12);
+}
+
+#confirm-delete-modal .modal__delete-button:hover,
+#confirm-delete-modal .modal__cancel-button:hover {
+  opacity: 0.92;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
