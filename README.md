@@ -1,6 +1,6 @@
 # se_project_spots
 
-Sprint 3 Project Part2
+Sprint 9 Project Spots Working with Java Script and APIS
 
 The project's name:
 Spots
@@ -26,14 +26,5 @@ https://bpeineke.github.io/se_project_spots/
 To ensure accessability to the recording/video as outlined in the project rquirents, it ha been hosted on YouTube, as well as made available for download on DropBox and my GoogleDrive:
 
 The project video can be found here:
-youtube:
-https://youtu.be/dPPj1fpHfIY
-
-Dropbox:
-https://www.dropbox.com/scl/fi/5ofdzk4uekldj7tz5b6kn/Sprint3Project3BPeineke.mp4?rlkey=cej4g0r3f9wo5sl4c1mmlkm8k&st=4baw7m92&dl=0
-
-Google Drive
-https://drive.google.com/file/d/1gO_pYsZ8ahJWm-1QSZYKgUBx22j4VLec/view?usp=drive_link
-
-Pictures, GIFs, or screenshots that detail the project features (highly
-recommended)
+https://drive.google.com/file/d/1gO_pYsZ8ahJWm-1QSZYKgUBx22j4VLec/view?usp=drive_link FIRST VIDEO
+https://drive.google.com/file/d/1tET4YGJ3RI84r0tCjeHCj31Vfx74Rrh5/view?usp=drive_link SECOND VIDEO "Working with API's"
